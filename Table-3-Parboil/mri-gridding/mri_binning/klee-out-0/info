@@ -1,0 +1,18 @@
+klee --symbolic-config mri-gridding
+PID: 49542
+Started: 2015-05-06 23:23:58
+BEGIN searcher description
+DFSSearcher
+END searcher description
+Finished: 2015-05-06 23:42:04
+Elapsed: 00:18:06
+KLEE: done: explored paths = 1
+KLEE: done: avg. constructs per query = 288
+KLEE: done: total queries = 15
+KLEE: done: valid queries = 7
+KLEE: done: invalid queries = 8
+KLEE: done: query cex = 15
+
+KLEE: done: total instructions = 474411001
+KLEE: done: completed paths = 1
+KLEE: done: generated tests = 1

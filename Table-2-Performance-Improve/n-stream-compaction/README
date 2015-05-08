@@ -1,0 +1,7 @@
+Compile Source Code:
+gklee-nvcc -o compact compact.cu -DN=[16,32,...]
+
+Run With SESA:
+opt -load /home/peng/GITHUB/Gklee/llvm/projects/TaintAnalysis/Debug+Asserts/lib/libashwin_taint.so -taint < compact > compact.new 2>&1
+gklee --symbolic-config compact.new [GKLEEp]
+gklee --symbolic-config --race-prune compact.new [SESA]

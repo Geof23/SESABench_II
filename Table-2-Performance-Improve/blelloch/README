@@ -1,0 +1,7 @@
+Compile Source Code:
+gklee-nvcc -o blelloch kernel.cu -Drwidth=32 -DBINOP_ADD -DN=32 -D_SYM
+
+Run With SESA:
+sesa < blelloch > blelloch.new 2>&1
+gklee --symbolic-config blelloch.new [GKLEEp]
+gklee --symbolic-config --race-prune blelloch.new [SESA]

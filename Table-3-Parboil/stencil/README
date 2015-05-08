@@ -1,0 +1,7 @@
+Build:
+
+gklee-nvcc -I /home/peng/  -o stencil main.cu 
+
+Run:
+
+gklee --symbolic-config --max-time=7200 stencil.new

@@ -1,0 +1,6 @@
+Error: execution halts on encounering a (global) race
+File: /home/sawaya/Gklee/GkleeTests/SESABench/LoneStar/apps/bfs/BFS_ATOMIC/./bfs_topo_atomic.h
+Line: 167
+Stack: 
+	#0 00005122 in _Z3bfsR5GraphPj (graph=59992752, dist=61273408) at /home/sawaya/Gklee/GkleeTests/SESABench/LoneStar/apps/bfs/BFS_ATOMIC/./bfs_topo_atomic.h:167
+	#1 00005415 in main (argc=1, argv=58943200) at /home/sawaya/Gklee/GkleeTests/SESABench/LoneStar/apps/bfs/BFS_ATOMIC/main.cpp:99

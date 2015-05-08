@@ -1,0 +1,18 @@
+Concrete inputs:
+
+[compile]:
+gklee-nvcc -o bfs_worklistw main.cu -I ../../../include -DVARIANT=BFS_WORKLISTW
+[run]:
+opt -load /home/peng/GITHUB/Gklee/llvm/projects/TaintAnalysis/Debug+Asserts/lib/libashwin_taint.so -taint < bfs_worklistw > bfs_worklistw.new 2>&1
+gklee --symbolic-config --max-sym-array-size=1024 bfs_worklistw.new  [GKLEEp]
+gklee --symbolic-config --race-prune --max-sym-array-size=1024 bfs_worklistw.new  [SESA]
+
+
+Symbolic inputs:
+
+[compile]:
+gklee-nvcc -o bfs_worklistw main.cu -I ../../../include -DVARIANT=BFS_WORKLISTW -D_SYM
+[run]:
+opt -load /home/peng/GITHUB/Gklee/llvm/projects/TaintAnalysis/Debug+Asserts/lib/libashwin_taint.so -taint < bfs_worklistw > bfs_worklistw.new 2>&1
+gklee --symbolic-config --max-sym-array-size=1024 --avoid-oob-check bfs_worklistw.new  [GKLEEp]
+gklee --symbolic-config --race-prune --max-sym-array-size=1024 --avoid-oob-check bfs_worklistw.new  [SESA]

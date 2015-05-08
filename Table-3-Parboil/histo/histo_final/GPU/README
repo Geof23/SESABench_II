@@ -1,0 +1,7 @@
+nvcc histo_final.cu -I/home/peng/PPoPP14-GKLEE-Test/Parboil/parboil/common/include -O3 -arch=sm_20 -c -o histo_final.o
+nvcc histo_intermediates.cu -I/home/peng/PPoPP14-GKLEE-Test/Parboil/parboil/common/include -O3 -arch=sm_20 -c -o histo_intermediates.o
+nvcc histo_main.cu -I/home/peng/PPoPP14-GKLEE-Test/Parboil/parboil/common/include -O3 -arch=sm_20 -c -o histo_main.o
+nvcc histo_prescan.cu -I/home/peng/PPoPP14-GKLEE-Test/Parboil/parboil/common/include -O3 -arch=sm_20 -c -o histo_prescan.o
+nvcc main.cu -I/home/peng/PPoPP14-GKLEE-Test/Parboil/parboil/common/include -O3 -arch=sm_20 -c -o main.o -D_FINAL
+
+nvcc -o histo histo_final.o histo_intermediates.o histo_main.o histo_prescan.o main.o

@@ -1,0 +1,20 @@
+=============== CONC ================
+[Compile]:
+gklee-nvcc -o sssp_wln main.cu -I ../../../include -DVARIANT=SSSP_WLN
+
+[Run]:
+sesa < sssp_wln > sssp_wln.new 2>&1
+gklee --symbolic-config sssp_wln.new
+gklee --symbolic-config --race-prune sssp_wln.new
+
+
+=============== SYM ================
+
+[Compile]:
+gklee-nvcc -o sssp_wln main.cu -I ../../../include -DVARIANT=SSSP_WLN -D_SYM
+
+[Run]:
+sesa < sssp_wln > sssp_wln.new 2>&1
+gklee --symbolic-config --avoid-oob-check sssp_wln.new
+gklee --symbolic-config --race-prune --avoid-oob-check sssp_wln.new
+

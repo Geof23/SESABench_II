@@ -1,0 +1,12 @@
+build:
+
+gklee-nvcc histo_final.cu -I/home/peng/PPoPP14-GKLEE-Test/Parboil/parboil/common/include -O3 -c -o histo_final.o
+gklee-nvcc histo_intermediates.cu -I/home/peng/PPoPP14-GKLEE-Test/Parboil/parboil/common/include -O3 -c -o histo_intermediates.o
+gklee-nvcc histo_main.cu -I/home/peng/PPoPP14-GKLEE-Test/Parboil/parboil/common/include -O3 -c -o histo_main.o
+gklee-nvcc histo_prescan.cu -I/home/peng/PPoPP14-GKLEE-Test/Parboil/parboil/common/include -O3 -c -o histo_prescan.o
+gklee-nvcc main.cu -I/home/peng/PPoPP14-GKLEE-Test/Parboil/parboil/common/include -O3 -c -o main.o -D_FINAL
+llvm-link -o histo histo_final.o histo_intermediates.o histo_main.o histo_prescan.o main.o
+
+run:
+
+gklee --symbolic-config histo

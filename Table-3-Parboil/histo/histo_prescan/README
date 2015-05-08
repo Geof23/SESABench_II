@@ -1,0 +1,17 @@
+How to build histo_prescan:
+
+gklee-nvcc histo_final.cu -I/home/peng/PPoPP14-GKLEE-Test/Parboil/parboil/common/include -O3 -c -o histo_final.o
+gklee-nvcc histo_intermediates.cu -I/home/peng/PPoPP14-GKLEE-Test/Parboil/parboil/common/include -O3 -c -o histo_intermediates.o
+gklee-nvcc histo_main.cu -I/home/peng/PPoPP14-GKLEE-Test/Parboil/parboil/common/include -O3 -c -o histo_main.o
+gklee-nvcc histo_prescan.cu -I/home/peng/PPoPP14-GKLEE-Test/Parboil/parboil/common/include -O3 -c -o histo_prescan.o
+
+[Concrete inputs:]
+gklee-nvcc main.cu -I/home/peng/PPoPP14-GKLEE-Test/Parboil/parboil/common/include -O3 -c -o main.o -D_PRESCAN
+[Symbolic inputs:]
+gklee-nvcc main.cu -I/home/peng/PPoPP14-GKLEE-Test/Parboil/parboil/common/include -O3 -c -o main.o -D_PRESCAN -D_SYM
+
+llvm-link -o histo histo_final.o histo_intermediates.o histo_main.o histo_prescan.o main.o
+
+Run:
+opt -load /home/peng/GITHUB/Gklee/llvm/projects/TaintAnalysis/Debug+Asserts/lib/libashwin_taint.so -scev-aa -taint < histo > histo.new 2>&1
+gklee --symbolic-config histo.new

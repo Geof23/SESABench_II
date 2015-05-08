@@ -1,0 +1,8 @@
+Build bfs:
+
+gklee-nvcc main.cu -I /home/peng/PPoPP14-GKLEE-Test/Parboil/parboil/common/include -O3 -Xptxas -dlcm=cg -o main.o -D_SYM
+
+GKLEE_p running:
+
+opt -load /home/peng/GKLEE/trunk/llvm/projects/alias/Debug+Asserts/lib/libashwin_taint.so -scev-aa -taint < main.o > main.new 2>&1
+gklee --symbolic-config --max-sym-array-size=2048 main.new

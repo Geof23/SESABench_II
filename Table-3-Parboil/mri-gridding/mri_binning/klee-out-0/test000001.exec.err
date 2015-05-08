@@ -1,0 +1,6 @@
+Error: execution halts on encounering a (global) race
+File: /home/sawaya/Gklee/GkleeTests/SESABench/Table-3-Parboil/mri-gridding/mri_binning/CUDA_interface.cpp
+Line: 152
+Stack: 
+	#0 00001351 in _Z14CUDA_interfaceP11pb_TimerSetj10parametersP20ReconstructionSamplePfiP5cmplxS4_ (timers=41437152, n=16840, params=41439520, sample=43121760, LUT=0, sizeLUT=0, gridData=139990584791056, sampleDensity=139990383456272) at /home/sawaya/Gklee/GkleeTests/SESABench/Table-3-Parboil/mri-gridding/mri_binning/CUDA_interface.cpp:152
+	#1 00000410 in main (argc=1, argv=42148928) at /home/sawaya/Gklee/GkleeTests/SESABench/Table-3-Parboil/mri-gridding/mri_binning/main.cpp:199

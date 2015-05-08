@@ -1,0 +1,18 @@
+Concrete inputs:
+
+[compile]:
+gklee-nvcc -o bfs_atomic main.cu -I ../../../include -DVARIANT=BFS_ATOMIC
+[run]:
+opt -load /home/peng/GITHUB/Gklee/llvm/projects/TaintAnalysis/Debug+Asserts/lib/libashwin_taint.so -taint < bfs_atomic > bfs_atomic.new 2>&1
+gklee --symbolic-config --max-sym-array-size=1024 bfs_atomic.new  [GKLEEp]
+gklee --symbolic-config --race-prune --max-sym-array-size=1024 bfs_atomic.new  [SESA]
+
+
+Symbolic inputs:
+
+[compile]:
+gklee-nvcc -o bfs_atomic main.cu -I ../../../include -DVARIANT=BFS_ATOMIC -D_SYM
+[run]:
+opt -load /home/peng/GITHUB/Gklee/llvm/projects/TaintAnalysis/Debug+Asserts/lib/libashwin_taint.so -taint < bfs_atomic > bfs_atomic.new 2>&1
+gklee --symbolic-config --max-sym-array-size=1024 --avoid-oob-check bfs_atomic.new  [GKLEEp]
+gklee --symbolic-config --race-prune --max-sym-array-size=1024 --avoid-oob-check bfs_atomic.new  [SESA]

@@ -1,0 +1,7 @@
+PROG=compact
+default: $(PROG)
+include ../../../Makefile.gklee.common
+
+.PHONY: clean
+clean:
+	rm -rf klee-* *.build.out $(PROG)

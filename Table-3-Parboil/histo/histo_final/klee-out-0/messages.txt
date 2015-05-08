@@ -1,0 +1,24 @@
+KLEE: WARNING: undefined reference to function: __clear_device
+KLEE: WARNING: undefined reference to function: __clear_host
+KLEE: WARNING: undefined reference to function: __set_CUDAConfig
+KLEE: WARNING: undefined reference to function: __set_device
+KLEE: WARNING: undefined reference to function: __set_host
+KLEE: WARNING: undefined reference to function: __uAtomicAdd
+KLEE: WARNING: undefined reference to function: __uAtomicMax
+KLEE: WARNING: undefined reference to function: __uAtomicMin
+KLEE: WARNING: undefined reference to variable: blockDim
+KLEE: WARNING: undefined reference to variable: blockIdx
+KLEE: WARNING: undefined reference to function: fclose
+KLEE: WARNING: undefined reference to function: fopen
+KLEE: WARNING: undefined reference to function: fread
+KLEE: WARNING: undefined reference to function: fwrite
+KLEE: WARNING: undefined reference to variable: gridDim
+KLEE: WARNING: undefined reference to function: min
+KLEE: WARNING: undefined reference to function: printf
+KLEE: WARNING: undefined reference to function: putchar
+KLEE: WARNING: undefined reference to function: sqrtf
+KLEE: WARNING: undefined reference to variable: stderr
+KLEE: WARNING: undefined reference to variable: threadIdx
+KLEE: WARNING: undefined reference to function: umin
+KLEE: WARNING: calling external: fopen(, )
+KLEE: WARNING: calling external: fread(, , , )

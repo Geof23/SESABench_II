@@ -1,0 +1,19 @@
+=============== CONC ================
+[Compile]:
+gklee-nvcc -o bh main.cu -I ../../../include
+
+[Run]:
+sesa < bh > bh.new 2>&1
+gklee --symbolic-config bh.new
+gklee --symbolic-config --race-prune bh.new
+
+
+=============== SYM ================
+
+[Compile]:
+gklee-nvcc -o bh main.cu -I ../../../include -D_SYM
+
+[Run]:
+sesa < bh > bh.new 2>&1
+gklee --symbolic-config --avoid-oob-check bh.new
+gklee --symbolic-config --race-prune --avoid-oob-check bh.new

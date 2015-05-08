@@ -1,0 +1,18 @@
+klee --symbolic-config --race-prune --max-sym-array-size=1024 bfs_worklistw.new
+PID: 26719
+Started: 2015-05-01 19:32:31
+BEGIN searcher description
+DFSSearcher
+END searcher description
+Finished: 2015-05-01 19:32:35
+Elapsed: 00:00:04
+KLEE: done: explored paths = 1
+KLEE: done: avg. constructs per query = 200
+KLEE: done: total queries = 19
+KLEE: done: valid queries = 8
+KLEE: done: invalid queries = 11
+KLEE: done: query cex = 19
+
+KLEE: done: total instructions = 11877
+KLEE: done: completed paths = 1
+KLEE: done: generated tests = 1

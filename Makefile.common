@@ -1,0 +1,41 @@
+OBJFILES = $(patsubst %.cpp,%.o,$(wildcard *.cpp))
+OBJFILES += $(patsubst %.c,%.o,$(wildcard *.c))
+OBJFILES += $(patsubst %.cu,%.o,$(wildcard *.cu))
+OPT ?= -O3
+TARGET ?= test
+GKP_FLAGS ?= --symbolic-config 
+GKS_FLAGS ?= --symbolic-config 
+#GN_FLAGS =
+#SESA_FLAGS =
+
+.PHONY : all $(TARGET).out $(TARGET).sesa.out
+
+all : $(TARGET).out $(TARGET).sesa.out
+
+$(TARGET).out : $(TARGET)
+#	gklee $(GKP_FLAGS) $(TARGET) > $(TARGET).out
+
+$(TARGET).sesa.out : $(TARGET).sesa
+#	gklee $(GKS_FLAGS) $(TARGET).sesa > $(TARGET).sesa.out
+
+$(TARGET).sesa : $(TARGET)
+	sesa $(SESA_FLAGS) < $(TARGET) > $(TARGET).sesa
+
+$(TARGET): $(OBJFILES)
+	llvm-link -o $(TARGET) $(OBJFILES)
+
+%.o: %.cu
+	gklee-nvcc $(OPT) $(GN_FLAGS) -c -o $@ $<
+	mv $(patsubst %.cu,%.cpp,$<) $<.cpp.intermediate
+
+%.o: %.cpp %.cc
+	klee-l++ $(OPT) $(GN_FLAGS) -o $@ $<
+
+%.o: %.c 
+	llvm-lcc $(OPT) $(GN_FLAGS) -o $@ $<
+
+.PHONY : clean
+clean: 
+	rm -f $(OBJFILES) $(TARGET) $(patsubst %.cu,%.cpp,$(wildcard *.cu)) *.intermediate
+
+

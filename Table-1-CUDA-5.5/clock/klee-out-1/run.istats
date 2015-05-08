@@ -1,0 +1,380 @@
+version: 1
+creator: klee
+pid: 1000
+cmd: clock
+
+
+positions: instr line
+event: Icov : CoveredInstructions
+event: Forks : Forks
+event: Ireal : InstructionRealTimes
+event: Itime : InstructionTimes
+event: I : Instructions
+event: UCdist : MinDistToUncovered
+event: Rtime : ResolveTime
+event: States : States
+event: Iuncov : UncoveredInstructions
+event: Q : Queries
+event: Qiv : QueriesInvalid
+event: Qv : QueriesValid
+event: Qtime : QueryTime
+events: Icov Forks Ireal Itime I UCdist Rtime States Iuncov Q Qiv Qv Qtime 
+ob=/home/sawaya/Gklee/GkleeTests/SESABench/Table-1-CUDA-5.5/clock/./klee-out-1/assembly.ll
+fn=main
+fl=/home/sawaya/Gklee/GkleeTests/SESABench/Table-1-CUDA-5.5/clock/clock.cpp
+32 93 1 0 0 0 1 0 0 0 0 0 0 0 0 
+33 93 1 0 0 0 1 0 0 0 0 0 0 0 0 
+34 93 1 0 0 0 1 0 0 0 0 0 0 0 0 
+35 93 1 0 0 0 1 0 0 0 0 0 0 0 0 
+36 93 1 0 0 0 1 0 0 0 0 0 0 0 0 
+37 93 1 0 0 0 1 0 0 0 0 0 0 0 0 
+38 98 1 0 0 0 1 0 0 0 0 0 0 0 0 
+39 99 1 0 0 0 1 0 0 0 0 0 0 0 0 
+40 100 1 0 0 0 1 0 0 0 0 0 0 0 0 
+41 109 1 0 0 0 1 0 0 0 0 0 0 0 0 
+44 109 1 0 0 0 512 0 0 0 0 0 0 0 0 
+45 111 1 0 0 0 512 0 0 0 0 0 0 0 0 
+46 111 1 0 0 0 512 0 0 0 0 0 0 0 0 
+47 111 1 0 0 0 512 0 0 0 0 0 0 0 0 
+48 111 1 0 0 0 512 0 0 0 0 0 0 0 0 
+49 109 1 0 0 0 512 0 0 0 0 0 0 0 0 
+50 109 1 0 0 0 512 0 0 0 0 0 0 0 0 
+51 109 1 0 0 0 512 0 0 0 0 0 0 0 0 
+52 109 1 0 0 0 512 0 0 0 0 0 0 0 0 
+55 118 1 0 0 0 1 0 0 0 0 0 0 0 0 
+56 118 1 0 0 0 1 0 0 0 0 0 0 0 0 
+cfl=/home/sawaya/Gklee/Gklee/runtime/CudaRuntime/cudaMemManage.cpp
+cfn=cudaMalloc
+calls=1 411 73
+56 118 5 0 0 0 5 0 0 0 0 0 0 0 0 
+57 119 1 0 0 0 1 0 0 0 0 0 0 0 0 
+58 119 1 0 0 0 1 0 0 0 0 0 0 0 0 
+cfl=/home/sawaya/Gklee/Gklee/runtime/CudaRuntime/cudaMemManage.cpp
+cfn=cudaMalloc
+calls=1 411 73
+58 119 0 0 0 0 5 0 0 0 0 0 0 0 0 
+59 120 1 0 0 0 1 0 0 0 0 0 0 0 0 
+60 120 1 0 0 0 1 0 0 0 0 0 0 0 0 
+cfl=/home/sawaya/Gklee/Gklee/runtime/CudaRuntime/cudaMemManage.cpp
+cfn=cudaMalloc
+calls=1 411 73
+60 120 0 0 0 0 5 0 0 0 0 0 0 0 0 
+61 123 1 0 0 0 1 0 0 0 0 0 0 0 0 
+62 123 1 0 0 0 1 0 0 0 0 0 0 0 0 
+63 123 1 0 0 0 1 0 0 0 0 0 0 0 0 
+64 123 1 0 0 0 1 0 0 0 0 0 0 0 0 
+cfl=/home/sawaya/Gklee/Gklee/runtime/CudaRuntime/cudaMemManage.cpp
+cfn=cudaMemcpy
+calls=1 459 108
+64 123 15 0 0 0 20485 0 0 0 0 0 0 0 0 
+65 126 1 0 0 0 1 0 0 0 0 0 0 0 0 
+66 130 1 0 0 0 1 0 0 0 0 0 0 0 0 
+67 130 1 0 0 0 1 0 0 0 0 0 0 0 0 
+68 130 1 0 0 0 1 0 0 0 0 0 0 0 0 
+69 130 1 0 0 0 1 0 0 0 0 0 0 0 0 
+cfn=_ZL14timedReductionPKfPfPl
+calls=45 93 29
+69 130 59 0 0 0 804 0 47041 0 0 96 23 73 238065 
+70 134 1 0 0 0 1 0 0 0 0 0 0 0 0 
+71 134 1 0 0 0 1 0 0 0 0 0 0 0 0 
+72 134 1 0 0 0 1 0 0 0 0 0 0 0 0 
+73 134 1 0 0 0 1 0 0 0 0 0 0 0 0 
+cfl=/home/sawaya/Gklee/Gklee/runtime/CudaRuntime/cudaMemManage.cpp
+cfn=cudaMemcpy
+calls=1 459 108
+73 134 0 0 0 0 10245 0 0 0 0 0 0 0 0 
+74 139 1 0 0 0 1 0 0 0 0 0 0 0 0 
+75 139 1 0 0 0 1 0 0 0 0 0 0 0 0 
+76 139 1 0 0 0 1 0 0 0 0 0 0 0 0 
+cfl=/home/sawaya/Gklee/Gklee/runtime/CudaRuntime/cudaMemManage.cpp
+cfn=cudaFree
+calls=1 355 30
+76 139 2 0 0 0 2 0 0 0 0 0 0 0 0 
+77 140 1 0 0 0 1 0 0 0 0 0 0 0 0 
+78 140 1 0 0 0 1 0 0 0 0 0 0 0 0 
+79 140 1 0 0 0 1 0 0 0 0 0 0 0 0 
+cfl=/home/sawaya/Gklee/Gklee/runtime/CudaRuntime/cudaMemManage.cpp
+cfn=cudaFree
+calls=1 355 30
+79 140 0 0 0 0 2 0 0 0 0 0 0 0 0 
+80 141 1 0 0 0 1 0 0 0 0 0 0 0 0 
+81 141 1 0 0 0 1 0 0 0 0 0 0 0 0 
+82 141 1 0 0 0 1 0 0 0 0 0 0 0 0 
+cfl=/home/sawaya/Gklee/Gklee/runtime/CudaRuntime/cudaMemManage.cpp
+cfn=cudaFree
+calls=1 355 30
+82 141 0 0 0 0 2 0 0 0 0 0 0 0 0 
+83 146 1 0 0 0 1 0 0 0 0 0 0 0 0 
+cfl=/home/sawaya/Gklee/Gklee/runtime/CudaRuntime/cudaDeviceManage.c
+cfn=cudaDeviceReset
+calls=1 271 38
+83 146 1 0 0 0 1 0 0 0 0 0 0 0 0 
+84 148 1 0 0 0 1 0 0 0 0 0 0 0 0 
+fn=_ZL14timedReductionPKfPfPl
+93 29 1 0 0 0 1 0 0 0 0 0 0 0 0 
+94 30 1 0 0 0 1 0 0 0 0 0 0 0 0 
+95 32 1 0 0 0 1 0 0 0 0 2 2 0 31417 
+96 32 1 0 0 0 2 0 0 0 0 0 0 0 0 
+99 32 1 0 0 0 1 0 0 0 0 0 0 0 0 
+100 32 1 0 0 0 1 0 0 0 0 0 0 0 0 
+101 32 1 0 0 0 1 0 0 0 0 0 0 0 0 
+102 32 1 0 0 0 1 0 17578 0 0 2 1 1 17194 
+103 32 1 0 0 0 1 0 0 0 0 0 0 0 0 
+106 35 1 0 0 0 2 0 0 0 0 0 0 0 0 
+107 35 1 0 0 0 2 0 0 0 0 0 0 0 0 
+108 35 1 0 0 0 2 0 843 0 0 1 0 1 391 
+109 35 1 0 0 0 2 0 0 0 0 0 0 0 0 
+110 35 1 0 0 0 2 0 831 0 0 0 0 0 0 
+111 36 1 0 0 0 2 0 0 0 0 0 0 0 0 
+112 36 1 0 0 0 2 0 0 0 0 0 0 0 0 
+113 36 1 0 0 0 2 0 0 0 0 0 0 0 0 
+114 36 1 0 0 0 2 0 0 0 0 0 0 0 0 
+115 36 1 0 0 0 2 0 858 0 0 1 0 1 412 
+116 36 1 0 0 0 2 0 0 0 0 0 0 0 0 
+117 36 1 0 0 0 2 0 842 0 0 0 0 0 0 
+118 39 1 0 0 0 2 0 0 0 0 0 0 0 0 
+119 39 1 0 0 0 2 0 0 0 0 0 0 0 0 
+122 39 1 0 0 0 46 0 0 0 0 0 0 0 0 
+123 41 1 0 0 0 46 0 0 0 0 44 13 31 161417 
+124 43 1 0 0 0 46 0 0 0 0 36 7 29 22305 
+125 43 1 0 0 0 53 0 0 0 0 0 0 0 0 
+128 45 1 0 0 0 17 0 11554 0 0 0 0 0 0 
+129 46 1 0 0 0 17 0 0 0 0 0 0 0 0 
+130 46 1 0 0 0 17 0 0 0 0 0 0 0 0 
+131 46 1 0 0 0 17 0 0 0 0 0 0 0 0 
+132 46 1 0 0 0 17 0 11600 0 0 8 0 8 4088 
+133 48 1 0 0 0 17 0 0 0 0 0 0 0 0 
+134 48 1 0 0 0 17 0 0 0 0 0 0 0 0 
+137 50 1 0 0 0 1 0 1633 0 0 0 0 0 0 
+138 51 1 0 0 0 1 0 0 0 0 0 0 0 0 
+141 43 1 0 0 0 53 0 0 0 0 0 0 0 0 
+142 43 1 0 0 0 53 0 0 0 0 0 0 0 0 
+cfl=/home/sawaya/Gklee/Gklee/runtime/Intrinsic/klee_div_zero_check.c
+cfn=klee_div_zero_check
+calls=9 182 13
+142 43 3 0 0 0 27 0 0 0 0 0 0 0 0 
+143 39 1 0 0 0 53 0 0 0 0 0 0 0 0 
+144 39 1 0 0 0 53 0 0 0 0 0 0 0 0 
+145 39 1 0 0 0 53 0 0 0 0 0 0 0 0 
+148 56 1 0 0 0 9 0 0 0 0 0 0 0 0 
+151 56 1 0 0 0 1 0 0 0 0 0 0 0 0 
+152 56 1 0 0 0 1 0 0 0 0 0 0 0 0 
+153 56 1 0 0 0 1 0 0 0 0 0 0 0 0 
+154 56 1 0 0 0 1 0 641 0 0 1 0 1 396 
+155 58 1 0 0 0 1 0 0 0 0 0 0 0 0 
+156 60 1 0 0 0 1 0 0 0 0 0 0 0 0 
+157 60 1 0 0 0 1 0 0 0 0 0 0 0 0 
+158 60 1 0 0 0 1 0 0 0 0 0 0 0 0 
+159 60 1 0 0 0 1 0 0 0 0 0 0 0 0 
+160 60 1 0 0 0 1 0 0 0 0 0 0 0 0 
+161 60 1 0 0 0 1 0 661 0 0 1 0 1 445 
+162 60 1 0 0 0 1 0 0 0 0 0 0 0 0 
+165 58 1 0 0 0 8 0 0 0 0 0 0 0 0 
+166 58 1 0 0 0 8 0 0 0 0 0 0 0 0 
+169 61 1 0 0 0 9 0 0 0 0 5 1 4 14500 
+fn=klee_div_zero_check
+fl=/home/sawaya/Gklee/Gklee/runtime/Intrinsic/klee_div_zero_check.c
+182 13 1 0 0 0 53 0 0 0 0 0 0 0 0 
+183 13 1 0 0 0 53 0 0 0 0 0 0 0 0 
+186 14 0 0 0 0 0 0 0 0 1 0 0 0 0 
+187 14 0 0 0 0 0 0 0 0 0 0 0 0 0 
+190 15 1 0 0 0 53 0 0 0 0 0 0 0 0 
+fn=memcpy
+fl=/home/sawaya/Gklee/Gklee/runtime/Intrinsic/memcpy.c
+197 16 1 0 0 0 2 0 0 0 0 0 0 0 0 
+198 16 1 0 0 0 2 0 0 0 0 0 0 0 0 
+201 16 1 0 0 0 3072 0 0 0 0 0 0 0 0 
+202 16 1 0 0 0 3072 0 0 0 0 0 0 0 0 
+203 16 1 0 0 0 3072 0 0 0 0 0 0 0 0 
+204 16 1 0 0 0 3072 0 0 0 0 0 0 0 0 
+205 17 1 0 0 0 3072 0 0 0 0 0 0 0 0 
+206 17 1 0 0 0 3072 0 0 0 0 0 0 0 0 
+207 17 1 0 0 0 3072 0 0 0 0 0 0 0 0 
+208 17 1 0 0 0 3072 0 0 0 0 0 0 0 0 
+209 16 1 0 0 0 3072 0 0 0 0 0 0 0 0 
+210 16 1 0 0 0 3072 0 0 0 0 0 0 0 0 
+213 18 1 0 0 0 2 0 0 0 0 0 0 0 0 
+fn=memset
+fl=/home/sawaya/Gklee/Gklee/runtime/Intrinsic/memset.c
+218 14 0 0 0 0 0 0 0 0 1 0 0 0 0 
+219 14 0 0 0 0 0 0 0 0 1 0 0 0 0 
+222 15 0 0 0 0 0 0 0 0 1 0 0 0 0 
+223 14 0 0 0 0 0 0 0 0 1 0 0 0 0 
+226 14 0 0 0 0 0 0 0 0 1 0 0 0 0 
+227 14 0 0 0 0 0 0 0 0 1 0 0 0 0 
+228 14 0 0 0 0 0 0 0 0 1 0 0 0 0 
+229 15 0 0 0 0 0 0 0 0 1 0 0 0 0 
+230 15 0 0 0 0 0 0 0 0 1 0 0 0 0 
+231 14 0 0 0 0 0 0 0 0 1 0 0 0 0 
+232 14 0 0 0 0 0 0 0 0 1 0 0 0 0 
+235 16 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaChooseDevice
+fl=/home/sawaya/Gklee/Gklee/runtime/CudaRuntime/cudaDeviceManage.c
+240 15 0 0 0 0 0 0 0 0 1 0 0 0 0 
+241 16 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaDeviceGetByPCIBusId
+246 20 0 0 0 0 0 0 0 0 1 0 0 0 0 
+247 21 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaDeviceGetCacheConfig
+252 25 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaDeviceGetLimit
+257 29 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaDeviceGetPCIBusId
+262 33 0 0 0 0 0 0 0 0 1 0 0 0 0 
+263 33 0 0 0 0 0 0 0 0 1 0 0 0 0 
+264 34 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaDeviceReset
+271 38 1 0 0 0 1 0 0 0 0 0 0 0 0 
+fn=cudaDeviceSetCacheConfig
+276 42 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaDeviceSetLimit
+281 46 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaDeviceSynchronize
+286 50 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaGetDevice
+291 54 0 0 0 0 0 0 0 0 1 0 0 0 0 
+292 55 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaGetDeviceCount
+297 59 0 0 0 0 0 0 0 0 1 0 0 0 0 
+298 60 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaGetDeviceProperties
+303 64 0 0 0 0 0 0 0 0 1 0 0 0 0 
+304 64 0 0 0 0 0 0 0 0 1 0 0 0 0 
+305 65 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaIpcCloseMemHandle
+310 69 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaIpcGetEventHandle
+315 73 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaIpcGetMemHandle
+320 77 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaIpcOpenEventHandle
+325 81 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaIpcOpenMemHandle
+330 85 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaSetDevice
+335 89 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaSetDeviceFlags
+340 93 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaSetValidDevices
+345 97 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaArrayGetInfo
+fl=/home/sawaya/Gklee/Gklee/runtime/CudaRuntime/cudaMemManage.cpp
+350 26 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaFree
+355 30 1 0 0 0 3 0 0 0 0 0 0 0 0 
+356 31 1 0 0 0 3 0 0 0 0 0 0 0 0 
+fn=cudaFreeArray
+363 35 0 0 0 0 0 0 0 0 1 0 0 0 0 
+364 35 0 0 0 0 0 0 0 0 1 0 0 0 0 
+365 36 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaFreeHost
+370 40 0 0 0 0 0 0 0 0 1 0 0 0 0 
+371 41 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaGetSymbolAddress
+376 45 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaGetSymbolSize
+381 49 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaHostAlloc
+386 53 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaHostGetDevicePointer
+391 57 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaHostGetFlags
+396 61 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaHostRegister
+401 65 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaHostUnregister
+406 69 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaMalloc
+411 73 1 0 0 0 3 0 0 0 0 0 0 0 0 
+412 74 1 0 0 0 3 0 0 0 0 0 0 0 0 
+413 74 1 0 0 0 3 0 0 0 0 0 0 0 0 
+414 75 1 0 0 0 3 0 0 0 0 0 0 0 0 
+415 77 1 0 0 0 3 0 0 0 0 0 0 0 0 
+fn=cudaMalloc3D
+426 81 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaMalloc3DArray
+431 86 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaMallocArray
+436 91 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaMallocHost
+441 95 0 0 0 0 0 0 0 0 1 0 0 0 0 
+442 96 0 0 0 0 0 0 0 0 1 0 0 0 0 
+443 96 0 0 0 0 0 0 0 0 1 0 0 0 0 
+444 97 0 0 0 0 0 0 0 0 1 0 0 0 0 
+445 99 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaMallocPitch
+454 103 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaMemcpy
+459 108 1 0 0 0 2 0 0 0 0 0 0 0 0 
+cfl=/home/sawaya/Gklee/Gklee/runtime/Intrinsic/memcpy.c
+cfn=memcpy
+calls=2 197 16
+459 108 13 0 0 0 30726 0 0 0 0 0 0 0 0 
+460 108 1 0 0 0 2 0 0 0 0 0 0 0 0 
+fn=cudaMemcpy2D
+465 113 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaMemcpy2DArrayToArray
+470 119 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaMemcpy2DAsync
+475 125 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaMemcpy2DFromArray
+480 131 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaMemcpy2DFromArrayAsync
+485 137 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaMemcpy2DToArray
+490 143 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaMemcpy2DToArrayAsync
+495 149 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaMemcpy3D
+500 153 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaMemcpy3DAsync
+505 157 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaMemcpy3DPeer
+510 161 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaMemcpy3DPeerAsync
+515 165 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaMemcpyArrayToArray
+520 171 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaMemcpyAsync
+525 176 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaMemcpyFromArray
+530 181 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaMemcpyFromArrayAsync
+535 187 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaMemcpyFromSymbol
+540 192 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaMemcpyFromSymbolAsync
+545 198 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaMemcpyPeer
+550 203 0 0 0 0 0 0 0 0 1 0 0 0 0 
+551 203 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaMemcpyPeerAsync
+556 209 0 0 0 0 0 0 0 0 1 0 0 0 0 
+557 209 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaMemcpyToArray
+562 214 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaMemcpyToArrayAsync
+567 220 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaMemcpyToSymbol
+572 225 0 0 0 0 0 0 0 0 1 0 0 0 0 
+573 225 0 0 0 0 0 0 0 0 1 0 0 0 0 
+574 226 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaMemcpyToSymbolAsync
+579 231 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaMemGetInfo
+584 235 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaMemset
+589 239 0 0 0 0 0 0 0 0 1 0 0 0 0 
+590 239 0 0 0 0 0 0 0 0 1 0 0 0 0 
+591 239 0 0 0 0 0 0 0 0 1 0 0 0 0 
+592 240 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaMemset2D
+599 245 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaMemset2DAsync
+604 250 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaMemset3D
+609 255 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaMemset3DAsync
+614 260 0 0 0 0 0 0 0 0 1 0 0 0 0 
+fn=cudaMemsetAsync
+619 264 0 0 0 0 0 0 0 0 1 0 0 0 0 

@@ -1,0 +1,4 @@
+KLEE: ERROR: /home/sawaya/Gklee/GkleeTests/SESABench/LoneStar/apps/sssp/SSSP_LS/main.cpp:20: execution halts on encounering a (global) race
+KLEE: NOTE: now ignoring this error at this location
+KLEE: ERROR: /home/sawaya/Gklee/GkleeTests/SESABench/LoneStar/apps/sssp/SSSP_LS/./sssp_ls.h:60: execution halts on encounering a (global) race
+KLEE: NOTE: now ignoring this error at this location

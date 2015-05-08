@@ -1,0 +1,13 @@
+How to build cutcp:
+
+klee-lcc -I/home/peng/PPoPP14-GKLEE-Test/Parboil/parboil/common/include -I/usr/local/cuda/include -c main.c -o build/main.o
+klee-lcc -I/home/peng/PPoPP14-GKLEE-Test/Parboil/parboil/common/include -I/usr/local/cuda/include -c readatom.c -o build/readatom.o
+klee-lcc -I/home/peng/PPoPP14-GKLEE-Test/Parboil/parboil/common/include -I/usr/local/cuda/include -c output.c -o build/output.o
+klee-lcc -I/home/peng/PPoPP14-GKLEE-Test/Parboil/parboil/common/include -I/usr/local/cuda/include -c excl.c -o build/excl.o
+klee-lcc -I/home/peng/PPoPP14-GKLEE-Test/Parboil/parboil/common/include -I/usr/local/cuda/include -c cutcpu.c -o build/cutcpu.o
+gklee-nvcc cutoff6overlap.cu -I/home/peng/PPoPP14-GKLEE-Test/Parboil/parboil/common/include -O3 -c -o build/cutoff6overlap.o -D_SYM
+llvm-link -o cutcp cutcpu.o cutoff6overlap.o excl.o main.o output.o readatom.o
+
+How to run with GKLEEp:
+
+

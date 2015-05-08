@@ -1,0 +1,12 @@
+
+Build:
+
+gklee-nvcc main.cu -I/home/peng/PPoPP14-GKLEE-Test/Parboil/parboil/common/include -O3 -c -o main.o -D_SYM
+klee-lcc -o convert_dataset.o convert_dataset.c
+klee-lcc -o mmio.o mmio.c
+klee-l++ -o gpu_info.o gpu_info.cc
+klee-l++ -o file.o file.cc
+llvm-link -o spmv main.o convert_dataset.o mmio.o gpu_info.o file.o
+
+Run 
+gklee --symbolic-config spmv

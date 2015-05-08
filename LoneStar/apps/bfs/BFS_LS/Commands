@@ -1,0 +1,20 @@
+=============== CONC ================
+[Compile]:
+gklee-nvcc -o bfs_ls main.cu -I ../../../include -DVARIANT=BFS_LS
+
+[Run]:
+sesa < bfs_ls > bfs_ls.new 2>&1
+gklee --symbolic-config bfs_ls.new
+gklee --symbolic-config --race-prune bfs_ls.new
+
+
+=============== SYM ================
+
+[Compile]:
+gklee-nvcc -o bfs_ls main.cu -I ../../../include -DVARIANT=BFS_LS -D_SYM
+
+[Run]:
+sesa < bfs_ls > bfs_ls.new 2>&1
+gklee --symbolic-config --avoid-oob-check bfs_ls.new
+gklee --symbolic-config --race-prune --avoid-oob-check bfs_ls.new
+

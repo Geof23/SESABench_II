@@ -1,0 +1,20 @@
+=============== CONC ================
+[Compile]:
+gklee-nvcc -o sssp_ls main.cu -I ../../../include -DVARIANT=SSSP_LS
+
+[Run]:
+sesa < sssp_ls > sssp_ls.new 2>&1
+gklee --symbolic-config sssp_ls.new
+gklee --symbolic-config --race-prune sssp_ls.new
+
+
+=============== SYM ================
+
+[Compile]:
+gklee-nvcc -o sssp_ls main.cu -I ../../../include -DVARIANT=SSSP_LS -D_SYM
+
+[Run]:
+sesa < sssp_ls > sssp_ls.new 2>&1
+gklee --symbolic-config --avoid-oob-check sssp_ls.new
+gklee --symbolic-config --race-prune --avoid-oob-check sssp_ls.new
+

@@ -1,0 +1,18 @@
+klee --symbolic-config clock
+PID: 10183
+Started: 2015-05-07 12:50:48
+BEGIN searcher description
+DFSSearcher
+END searcher description
+Finished: 2015-05-07 12:50:57
+Elapsed: 00:00:09
+KLEE: done: explored paths = 1
+KLEE: done: avg. constructs per query = 212
+KLEE: done: total queries = 101
+KLEE: done: valid queries = 77
+KLEE: done: invalid queries = 24
+KLEE: done: query cex = 101
+
+KLEE: done: total instructions = 36220
+KLEE: done: completed paths = 1
+KLEE: done: generated tests = 1

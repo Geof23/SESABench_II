@@ -1,0 +1,8 @@
+// a way to choose an int to [0..n)
+#define CHOOSE2(x) (((x &  1) == 1)  ? 1 : 0)
+#define CHOOSE3(x) (((x &  2) == 2)  ? 2 : CHOOSE2(x))
+#define CHOOSE4(x) (((x &  4) == 4)  ? 3 : CHOOSE3(x))
+#define CHOOSE5(x) (((x &  8) == 8)  ? 4 : CHOOSE4(x))
+#define CHOOSE6(x) (((x & 16) == 16) ? 5 : CHOOSE5(x))
+#define _CHOOSE(x,n) CHOOSE##n(x)
+#define CHOOSE(x,n) _CHOOSE(x,n)

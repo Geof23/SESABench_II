@@ -1,0 +1,40 @@
+KLEE: WARNING: undefined reference to function: __clear_device
+KLEE: WARNING: undefined reference to function: __clear_host
+KLEE: WARNING: undefined reference to function: __set_CUDAConfig
+KLEE: WARNING: undefined reference to function: __set_device
+KLEE: WARNING: undefined reference to function: __set_host
+KLEE: WARNING: undefined reference to variable: blockDim
+KLEE: WARNING: undefined reference to variable: blockIdx
+KLEE: WARNING: undefined reference to function: ceilf
+KLEE: WARNING: undefined reference to function: fclose
+KLEE: WARNING: undefined reference to function: fgets
+KLEE: WARNING: undefined reference to function: fopen
+KLEE: WARNING: undefined reference to function: fprintf
+KLEE: WARNING: undefined reference to function: fread
+KLEE: WARNING: undefined reference to function: fscanf
+KLEE: WARNING: undefined reference to function: fwrite
+KLEE: WARNING: undefined reference to function: printf
+KLEE: WARNING: undefined reference to function: puts
+KLEE: WARNING: undefined reference to function: sprintf
+KLEE: WARNING: undefined reference to function: sscanf
+KLEE: WARNING: undefined reference to variable: stderr
+KLEE: WARNING: undefined reference to variable: stdin
+KLEE: WARNING: undefined reference to variable: stdout
+KLEE: WARNING: undefined reference to function: strcmp
+KLEE: WARNING: undefined reference to function: strcpy
+KLEE: WARNING: undefined reference to function: strlen
+KLEE: WARNING: undefined reference to function: strncmp
+KLEE: WARNING: undefined reference to variable: threadIdx
+KLEE: WARNING: undefined reference to function: tolower
+KLEE: WARNING: calling external: puts()
+KLEE: WARNING: calling external: fopen(, )
+KLEE: WARNING: calling external: fgets(, , )
+KLEE: WARNING: calling external: sscanf(, , , , , , )
+KLEE: WARNING: calling external: tolower()
+KLEE: WARNING: calling external: strncmp(, , )
+KLEE: WARNING: calling external: strcmp(, )
+KLEE: WARNING: calling external: fscanf(, , , , )
+KLEE: WARNING: calling external: printf(, , , , , , )
+KLEE: WARNING: calling external: fclose()
+KLEE: WARNING: calling external: fread(, , , )
+KLEE: WARNING: flushing 20000 bytes on read, may be slow and/or crash: MO32[20000] allocated at global:_ZL11sh_zcnt_int

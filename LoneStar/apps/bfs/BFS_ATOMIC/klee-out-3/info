@@ -1,0 +1,3 @@
+klee --symbolic-config --race-prune --max-sym-array-size=1024 --avoid-oob-check bfs_atomic.new
+PID: 26077
+Started: 2015-05-01 18:47:30

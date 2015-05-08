@@ -1,0 +1,7 @@
+[Build:]  
+gklee-nvcc -o bitonic_[16,32,64,128,256] bitonic_main.cu -DSHARED_SIZE_LIMIT=[32,64,128,256,512]
+sesa < bitonic_[16,32,64,128,256] > bitonic_[16,32,64,128,256].new 2>&1
+
+[Run:]
+gklee --symbolic-config bitonic_[16,32,64,128,256].new 
+gklee --symbolic-config --race-prune bitonic_[16,32,64,128,256].new 

@@ -1,0 +1,7 @@
+[Build:]  
+gklee-nvcc -o workSearch_[16,32,64,128,256] search.cu -DNUM1=[32,64,128,256,512] -DNUM2=[16,32,64,128,256]
+sesa < wordSearch_[16,32,64,128,256] > wordSearch_[16,32,64,128,256].new 2>&1
+
+[Run:]
+gklee --symbolic-config wordSearch_16.new       [GKLEEp] 
+gklee --symbolic-config --race-prune wordSearch_16.new     [SESA]

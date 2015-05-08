@@ -1,0 +1,4 @@
+.PHONY : all 
+
+all : $(DIRS)
+	+$(MAKE) -C $<

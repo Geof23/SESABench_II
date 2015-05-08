@@ -1,0 +1,9 @@
+How to build mri-gridding:
+
+gklee-nvcc main.cu -I/home/peng/PPoPP14-GKLEE-Test/Parboil/parboil/common/include -O3 -c -o main.o -D_SYM
+gklee-nvcc CUDA_interface.cu -I/home/peng/PPoPP14-GKLEE-Test/Parboil/parboil/common/include -O3 -c -o CUDA_interface.o -D_REORDER
+llvm-link -o mri-gridding main.o CUDA_interface.o
+
+Run :
+
+

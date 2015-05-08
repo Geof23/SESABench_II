@@ -1,0 +1,11 @@
+[Build]:
+
+klee-l++ -o mergeSort_main.o mergeSort_main.cpp -D_SYM
+gklee-nvcc -o mergeSort.o mergeSort.c
+llvm-link -o mergeSort mergeSort.o mergeSort_main.o 
+
+[Run]:
+
+sesa < mergeSort > mergeSort.new 2>&1
+gklee --symbolic-config mergeSort.new  [GKLEEp]
+gklee --symbolic-config --race-prune mergeSort.new  [GKLEEp]
