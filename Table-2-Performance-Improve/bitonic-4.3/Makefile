@@ -7,7 +7,7 @@ TARGET = bitonic-4.3_16
 
 include ../../Makefile.common
 
-GN_FLAGS = -DSHARED_SIZE_LIMIT=256
-TARGET = bitonic-4.3_256
+# GN_FLAGS = -DSHARED_SIZE_LIMIT=256
+# TARGET = bitonic-4.3_256
 
-include ../../Makefile.common
+# include ../../Makefile.common

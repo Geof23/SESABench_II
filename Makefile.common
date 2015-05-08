@@ -20,7 +20,7 @@ $(TARGET).sesa.out : $(TARGET).sesa
 #	gklee $(GKS_FLAGS) $(TARGET).sesa &> $(TARGET).sesa.out
 
 $(TARGET).sesa : $(TARGET)
-#	sesa $(SESA_FLAGS) < $(TARGET) > $(TARGET).sesa 2> sesa.error
+	sesa $(SESA_FLAGS) < $(TARGET) > $(TARGET).sesa 
 
 $(TARGET): $(OBJFILES)
 	llvm-link -o $(TARGET) $(OBJFILES) 
