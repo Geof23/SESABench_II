@@ -6,7 +6,7 @@ TARGET ?= test
 GKP_FLAGS ?= --symbolic-config 
 GKS_FLAGS ?= --symbolic-config 
 #GN_FLAGS =
-#SESA_FLAGS =
+#SESA_FLAGS =2
 
 .PHONY : all $(TARGET).out $(TARGET).sesa.out
 
@@ -28,7 +28,10 @@ $(TARGET): $(OBJFILES)
 	gklee-nvcc $(OPT) $(GN_FLAGS) -c -o $@ $<
 	mv $(patsubst %.cu,%.cpp,$<) $<.cpp.intermediate
 
-%.o: %.cpp %.cc
+%.o: %.cpp
+	klee-l++ $(OPT) $(GN_FLAGS) -o $@ $<
+
+%.o: %.cc
 	klee-l++ $(OPT) $(GN_FLAGS) -o $@ $<
 
 %.o: %.c 
