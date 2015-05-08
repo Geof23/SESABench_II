@@ -13,16 +13,16 @@ GKS_FLAGS ?= --symbolic-config
 all : $(TARGET).out $(TARGET).sesa.out
 
 $(TARGET).out : $(TARGET)
-#	gklee $(GKP_FLAGS) $(TARGET) > $(TARGET).out
+#	gklee $(GKP_FLAGS) $(TARGET) &> $(TARGET).out
 
 $(TARGET).sesa.out : $(TARGET).sesa
-#	gklee $(GKS_FLAGS) $(TARGET).sesa > $(TARGET).sesa.out
+#	gklee $(GKS_FLAGS) $(TARGET).sesa &> $(TARGET).sesa.out
 
 $(TARGET).sesa : $(TARGET)
-	sesa $(SESA_FLAGS) < $(TARGET) > $(TARGET).sesa
+#	sesa $(SESA_FLAGS) < $(TARGET) > $(TARGET).sesa 2> sesa.error
 
 $(TARGET): $(OBJFILES)
-	llvm-link -o $(TARGET) $(OBJFILES)
+	llvm-link -o $(TARGET) $(OBJFILES) 
 
 %.o: %.cu
 	gklee-nvcc $(OPT) $(GN_FLAGS) -c -o $@ $<

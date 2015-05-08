@@ -1,4 +1,6 @@
-.PHONY : all 
+.PHONY : subdirs $(DIRS)
 
-all : $(DIRS)
-	+$(MAKE) -C $<
+subdirs: $(DIRS)
+
+$(DIRS):
+				$(MAKE) -C $@
