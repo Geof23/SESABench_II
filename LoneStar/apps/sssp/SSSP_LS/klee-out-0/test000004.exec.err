@@ -1,5 +1,0 @@
-Error: execution halts on encounering a (global) race
-File: /home/sawaya/Gklee/GkleeTests/SESABench/LoneStar/apps/sssp/SSSP_LS/./sssp_ls.h
-Line: 60
-Stack: 
-	#0 00015551 in main (argc=1, argv=65534288) at /home/sawaya/Gklee/GkleeTests/SESABench/LoneStar/apps/sssp/SSSP_LS/./sssp_ls.h:60

@@ -1,4 +1,0 @@
-KLEE: ERROR: /home/sawaya/Gklee/GkleeTests/SESABench/LoneStar/apps/bfs/BFS_ATOMIC/./bfs_topo_atomic.h:167: execution halts on encounering a (shared) race
-KLEE: NOTE: now ignoring this error at this location
-KLEE: ERROR: /home/sawaya/Gklee/GkleeTests/SESABench/LoneStar/apps/bfs/BFS_ATOMIC/./bfs_topo_atomic.h:167: execution halts on encounering a (global) race
-KLEE: NOTE: now ignoring this error at this location

@@ -1,5 +1,0 @@
-Error: execution halts on encounering a (shared) race
-File: /home/sawaya/Gklee/GkleeTests/SESABench/LoneStar/apps/bfs/BFS_ATOMIC/./bfs_topo_atomic.h
-Line: 101
-Stack: 
-	#0 00013325 in main (argc=1, argv=45158928) at /home/sawaya/Gklee/GkleeTests/SESABench/LoneStar/apps/bfs/BFS_ATOMIC/./bfs_topo_atomic.h:101

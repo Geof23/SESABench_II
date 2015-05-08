@@ -1,3 +1,0 @@
-klee --symbolic-config test
-PID: 14659
-Started: 2015-05-07 15:18:06

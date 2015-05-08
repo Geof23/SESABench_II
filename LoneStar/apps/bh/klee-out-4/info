@@ -1,3 +1,0 @@
-/home/sawaya/Gklee/bin/klee --symbolic-config --race-prune --avoid-oob-check bh.new
-PID: 28208
-Started: 2015-05-01 21:15:10

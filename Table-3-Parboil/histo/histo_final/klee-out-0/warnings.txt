@@ -1,2 +1,0 @@
-KLEE: ERROR: /home/sawaya/Gklee/GkleeTests/SESABench/Table-3-Parboil/histo/histo_final/main.cpp:84: failed external call: fread
-KLEE: NOTE: now ignoring this error at this location

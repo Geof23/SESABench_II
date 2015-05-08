@@ -1,3 +1,0 @@
-klee --symbolic-config --race-prune --avoid-oob-check bh.new
-PID: 26873
-Started: 2015-05-01 19:36:05

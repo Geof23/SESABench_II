@@ -1,5 +1,0 @@
-Error: execution halts on encounering a (global) race
-File: /home/sawaya/Gklee/GkleeTests/SESABench/LoneStar/apps/bfs/BFS_WORKLISTA/./bfs_worklista.h
-Line: 107
-Stack: 
-	#0 00014523 in main (argc=1, argv=46262576) at /home/sawaya/Gklee/GkleeTests/SESABench/LoneStar/apps/bfs/BFS_WORKLISTA/./bfs_worklista.h:107

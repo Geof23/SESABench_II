@@ -1,3 +1,0 @@
-klee --symbolic-config mri-gridding
-PID: 49771
-Started: 2015-05-06 23:42:29

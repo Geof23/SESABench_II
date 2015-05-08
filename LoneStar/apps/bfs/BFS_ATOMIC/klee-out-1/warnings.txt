@@ -1,2 +1,0 @@
-KLEE: ERROR: /home/sawaya/Gklee/GkleeTests/SESABench/LoneStar/apps/bfs/BFS_ATOMIC/./bfs_topo_atomic.h:101: execution halts on encounering a (shared) race
-KLEE: NOTE: now ignoring this error at this location

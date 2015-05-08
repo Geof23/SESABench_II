@@ -14,10 +14,10 @@ GKS_FLAGS ?= --symbolic-config
 all : $(TARGET).out $(TARGET).sesa.out
 
 $(TARGET).out : $(TARGET)
-#	gklee $(GKP_FLAGS) $(TARGET) &> $(TARGET).out
+	gklee $(GKP_FLAGS) $(TARGET) &> $(TARGET).out
 
 $(TARGET).sesa.out : $(TARGET).sesa
-#	gklee $(GKS_FLAGS) $(TARGET).sesa &> $(TARGET).sesa.out
+	gklee $(GKS_FLAGS) $(TARGET).sesa &> $(TARGET).sesa.out
 
 $(TARGET).sesa : $(TARGET)
 	sesa $(SESA_FLAGS) < $(TARGET) > $(TARGET).sesa 
