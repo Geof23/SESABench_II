@@ -1,6 +1,7 @@
 OBJFILES = $(patsubst %.cpp,%.o,$(wildcard *.cpp))
 OBJFILES += $(patsubst %.c,%.o,$(wildcard *.c))
 OBJFILES += $(patsubst %.cu,%.o,$(wildcard *.cu))
+#CPPFILES := *.cpp
 OPT ?= -O3
 TARGET ?= test
 GKP_FLAGS ?= --symbolic-config 
@@ -28,14 +29,14 @@ $(TARGET): $(OBJFILES)
 	gklee-nvcc $(OPT) $(GN_FLAGS) -c -o $@ $<
 	mv $(patsubst %.cu,%.cpp,$<) $<.cpp.intermediate
 
-%.o: %.cpp
+%.o: %.cpp #$(CPPFILES)
 	klee-l++ $(OPT) $(GN_FLAGS) -o $@ $<
 
 %.o: %.cc
 	klee-l++ $(OPT) $(GN_FLAGS) -o $@ $<
 
 %.o: %.c 
-	llvm-lcc $(OPT) $(GN_FLAGS) -o $@ $<
+	klee-lcc $(OPT) $(GN_FLAGS) -o $@ $<
 
 .PHONY : clean
 clean: 

@@ -16,7 +16,7 @@
 #include <stdlib.h>
 #include "mergeSort_common.h"
 //#include "mergeSort.cu"
-#include "mergeSort_validate.cpp"
+#include "mergeSort_validate.cpp_include"
 
 
 

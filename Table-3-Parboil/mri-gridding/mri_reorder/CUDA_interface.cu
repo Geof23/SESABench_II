@@ -16,7 +16,7 @@
 
 #include "UDTypes.h"
 #include "scanLargeArray.h"
-#include "GPU_kernels.cu"
+#include "GPU_kernels.cu_include"
 #include "CPU_kernels.h"
 
 #define USE_CUDPP 0

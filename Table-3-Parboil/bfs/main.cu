@@ -37,7 +37,7 @@ FILE *fp;
 typedef int2 Node;
 typedef int2 Edge;
 
-#include "kernel.cu"
+#include "kernel.cu_include"
 const int h_top = 1;
 const int zero = 0;
 
