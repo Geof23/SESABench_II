@@ -1,26 +1,32 @@
 OBJFILES = $(patsubst %.cpp,%.o,$(wildcard *.cpp))
 OBJFILES += $(patsubst %.c,%.o,$(wildcard *.c))
 OBJFILES += $(patsubst %.cu,%.o,$(wildcard *.cu))
-#CPPFILES := *.cpp
 OPT ?= -O3
 TARGET ?= test
-GKP_FLAGS ?= --symbolic-config 
-GKS_FLAGS ?= --symbolic-config 
+GKP_FLAGS ?= --symbolic-config --max-time=3600
+GKS_FLAGS ?= --symbolic-config --max-time=3600
+SESA_TIMEOUT ?= -c -t 7200 -m 1000000
 #GN_FLAGS =
 #SESA_FLAGS =2
 
-.PHONY : all $(TARGET).out $(TARGET).sesa.out
+.PHONY : all
 
 all : $(TARGET).out $(TARGET).sesa.out
 
 $(TARGET).out : $(TARGET)
-	gklee $(GKP_FLAGS) $(TARGET) &> $(TARGET).out
+	if [ ! -e p-run ]; then mkdir p-run; fi
+	if [ -e ExternAttribute.txt ]; then ln -f ExternAttribute.txt p-run/; fi
+	ln -f kernelSet.txt $(TARGET) p-run/
+	-cd p-run; gklee $(GKP_FLAGS) $(TARGET) > ../$(TARGET).out 2>&1
 
 $(TARGET).sesa.out : $(TARGET).sesa
-	gklee $(GKS_FLAGS) $(TARGET).sesa &> $(TARGET).sesa.out
+	if [ ! -e s-run ]; then mkdir s-run; fi
+	if [ -e ExternAttribute.txt ]; then ln -f ExternAttribute.txt s-run/; fi
+	ln -f kernelSet.txt $(TARGET).sesa s-run/
+	-cd s-run; gklee $(GKS_FLAGS) $(TARGET).sesa > ../$(TARGET).sesa.out 2>&1
 
 $(TARGET).sesa : $(TARGET)
-	sesa $(SESA_FLAGS) < $(TARGET) > $(TARGET).sesa 
+	$(LEVEL)/timeoutMT $(SESA_TIMEOUT) sesa $(SESA_FLAGS) < $(TARGET) > $(TARGET).sesa 
 
 $(TARGET): $(OBJFILES)
 	llvm-link -o $(TARGET) $(OBJFILES) 
@@ -40,6 +46,15 @@ $(TARGET): $(OBJFILES)
 
 .PHONY : clean
 clean: 
-	rm -f $(OBJFILES) $(TARGET) $(patsubst %.cu,%.cpp,$(wildcard *.cu)) *.intermediate
+	rm -f $(OBJFILES) $(TARGET) $(patsubst %.cu,%.cpp,$(wildcard *.cu)) 
+	rm -f *.intermediate *.sesa summary.txt ExternAttribute.txt kernelSet.txt
+	rm -rf 'klee-last' $(wildcard klee-out-*) s-run p-run
+	rm $(TARGET).out $(TARGET).sesa.out
+
+
+
+
+
+
 
 
