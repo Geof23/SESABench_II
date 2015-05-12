@@ -26,7 +26,7 @@ $(TARGET).sesa.out : $(TARGET).sesa
 	-cd s-run; gklee $(GKS_FLAGS) $(TARGET).sesa > ../$(TARGET).sesa.out 2>&1
 
 $(TARGET).sesa : $(TARGET)
-	$(LEVEL)/timeoutMT $(SESA_TIMEOUT) sesa $(SESA_FLAGS) < $(TARGET) > $(TARGET).sesa 
+	$(LEVEL)timeoutMT $(SESA_TIMEOUT) sesa $(SESA_FLAGS) < $(TARGET) > $(TARGET).sesa 
 
 $(TARGET): $(OBJFILES)
 	llvm-link -o $(TARGET) $(OBJFILES) 
