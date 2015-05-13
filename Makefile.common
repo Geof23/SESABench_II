@@ -15,8 +15,9 @@ all : $(TARGET).out $(TARGET).sesa.out
 
 $(TARGET).out : $(TARGET)
 	if [ ! -e p-run ]; then mkdir p-run; fi
-	if [ -e ExternAttribute.txt ]; then ln -f ExternAttribute.txt p-run/; fi
-	ln -f kernelSet.txt $(TARGET) p-run/
+#	if [ -e ExternAttribute.txt ]; then ln -f ExternAttribute.txt p-run/; fi
+	-ln -f *.ExternAttribute.txt p-run/
+	-ln -f *.kernelSet.txt $(TARGET) p-run/
 	-cd p-run; gklee $(GKP_FLAGS) $(TARGET) > ../$(TARGET).out 2>&1
 
 $(TARGET).sesa.out : $(TARGET).sesa
