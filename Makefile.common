@@ -13,7 +13,7 @@ SESA_TIMEOUT ?= -c -t 7200 -m 1000000
 
 all : $(TARGET).out $(TARGET).sesa.out
 
-$(TARGET).out : $(TARGET)
+$(TARGET).out : $(TARGET) 
 	if [ ! -e p-run ]; then mkdir p-run; fi
 #	if [ -e ExternAttribute.txt ]; then ln -f ExternAttribute.txt p-run/; fi
 	-ln -f *.ExternAttribute.txt p-run/
@@ -22,8 +22,9 @@ $(TARGET).out : $(TARGET)
 
 $(TARGET).sesa.out : $(TARGET).sesa
 	if [ ! -e s-run ]; then mkdir s-run; fi
-	if [ -e ExternAttribute.txt ]; then ln -f ExternAttribute.txt s-run/; fi
-	ln -f kernelSet.txt $(TARGET).sesa s-run/
+#	if [ -e ExternAttribute.txt ]; then ln -f ExternAttribute.txt s-run/; fi
+	-ln -f *.kernelSet.txt $(TARGET).sesa s-run/
+	-ln -f *.ExternAttribute.txt s-run
 	-cd s-run; gklee $(GKS_FLAGS) $(TARGET).sesa > ../$(TARGET).sesa.out 2>&1
 
 $(TARGET).sesa : $(TARGET)
