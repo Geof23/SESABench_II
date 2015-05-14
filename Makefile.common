@@ -49,7 +49,7 @@ $(TARGET): $(OBJFILES)
 .PHONY : clean
 clean: 
 	-rm -f $(OBJFILES) $(TARGET) $(patsubst %.cu,%.cpp,$(wildcard *.cu)) 
-	-rm -f *.intermediate *.sesa summary.txt ExternAttribute.txt kernelSet.txt
+	-rm -f *.intermediate *.sesa summary.txt *.ExternAttribute.txt *.kernelSet.txt
 	-rm -rf 'klee-last' $(wildcard klee-out-*) s-run p-run
 	-rm $(TARGET).out $(TARGET).sesa.out
 
