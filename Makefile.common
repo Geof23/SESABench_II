@@ -19,13 +19,13 @@ $(TARGET).out : $(TARGET)
 	if [ ! -e p-run ]; then mkdir p-run; fi
 	-ln -f *.ExternAttribute.txt p-run/
 	-ln -f *.kernelSet.txt $(TARGET) p-run/
-	-cd p-run; gklee $(GKP_FLAGS) $(TARGET) > ../$(TARGET).out 2>&1
+	-cd p-run; ulimit $(SESA_TIMEOUT); gklee $(GKP_FLAGS) $(TARGET) > ../$(TARGET).out 2>&1
 
 $(TARGET).sesa.out : $(TARGET).sesa
 	if [ ! -e s-run ]; then mkdir s-run; fi
 	-ln -f *.kernelSet.txt $(TARGET).sesa s-run/
 	-ln -f *.ExternAttribute.txt s-run
-	-cd s-run; gklee $(GKS_FLAGS) $(TARGET).sesa > ../$(TARGET).sesa.out 2>&1
+	-cd s-run; ulimit $(SESA_TIMEOUT); gklee $(GKS_FLAGS) $(TARGET).sesa > ../$(TARGET).sesa.out 2>&1
 
 $(TARGET).sesa : $(TARGET)
 	ulimit $(SESA_TIMEOUT) sesa $(SESA_FLAGS) < $(TARGET) > $(TARGET).sesa &> $(TARGET).sesa.err
