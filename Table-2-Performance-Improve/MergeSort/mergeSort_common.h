@@ -19,7 +19,7 @@ typedef unsigned int uint;
 //#define SHARED_SIZE_LIMIT 1024U
 #define SHARED_SIZE_LIMIT 8U
 //#define     SAMPLE_STRIDE 128
-#define     SAMPLE_STRIDE 2
+#define     SAMPLE_STRIDE 8
 
 
 
