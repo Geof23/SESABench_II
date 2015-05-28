@@ -1,3 +1,5 @@
+export SHELL := /bin/bash
+.SHELLFLAGS := -c
 OBJFILES = $(patsubst %.cpp,%.o,$(wildcard *.cpp))
 OBJFILES += $(patsubst %.c,%.o,$(wildcard *.c))
 OBJFILES += $(patsubst %.cu,%.o,$(wildcard *.cu))
@@ -13,7 +15,10 @@ SESA_FLAGS ?= -verbose=$(VERBOSE)
 
 .PHONY : all
 
-all : $(TARGET).out $(TARGET).sesa.out
+#all : $(TARGET).out $(TARGET).sesa.out
+#TODO we temporarilly disabled SESA to make sure we have the bugs out of GkleeP,
+#and we'll contiune to SESA after.
+all : $(TARGET).out 
 
 $(TARGET).out : $(TARGET) 
 	if [ ! -e p-run ]; then mkdir p-run; fi
@@ -28,7 +33,7 @@ $(TARGET).sesa.out : $(TARGET).sesa
 	-cd s-run; ulimit $(SESA_TIMEOUT); gklee $(GKS_FLAGS) $(TARGET).sesa > ../$(TARGET).sesa.out 2>&1
 
 $(TARGET).sesa : $(TARGET)
-	ulimit $(SESA_TIMEOUT) sesa $(SESA_FLAGS) < $(TARGET) > $(TARGET).sesa &> $(TARGET).sesa.err
+	ulimit $(SESA_TIMEOUT); sesa $(SESA_FLAGS) < $(TARGET) > $(TARGET).sesa 2> $(TARGET).sesa.err
 
 $(TARGET): $(OBJFILES)
 	llvm-link -o $(TARGET) $(OBJFILES) 
