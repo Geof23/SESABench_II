@@ -2,7 +2,7 @@
 #include <cstdio>
 #include "choose.h"
 
-#define N 4 
+//#define N 4 
 #define MAXWRITE 4
 
 __global__ void compact(int *out, int*in) {
