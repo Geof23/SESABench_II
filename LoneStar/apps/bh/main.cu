@@ -84,7 +84,8 @@ Author: Martin Burtscher <burtscher@txstate.edu>
 
 __device__ volatile int stepd, bottomd, maxdepthd;
 __device__ unsigned int blkcntd;
-__device__ volatile float radiusd;
+__device__ volatile int radiusd;
+// __device__ volatile float radiusd;
 
 
 /******************************************************************************/

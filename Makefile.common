@@ -6,10 +6,11 @@ OBJFILES += $(patsubst %.cu,%.o,$(wildcard *.cu))
 VERBOSE ?= 0
 OPT ?= -O3
 TARGET ?= test
-GKP_FLAGS ?= --symbolic-config --max-time=3600 -verbose=$(VERBOSE)
-GKS_FLAGS ?= --symbolic-config --max-time=3600 -verbose=$(VERBOSE)
+GKP_FLAGS ?= --symbolic-config --max-time=7200 
+#-log-level=999
+GKS_FLAGS ?= --symbolic-config --max-time=7200 -log-level=999
 #SESA_TIMEOUT ?= -c -t 7200 -m 1000000
-SESA_TIMEOUT ?= -t 7200 -v 1000000
+SESA_TIMEOUT ?= -t 7200 -v 4000000
 #GN_FLAGS +=
 SESA_FLAGS ?= -verbose=$(VERBOSE)
 
@@ -24,12 +25,14 @@ $(TARGET).out : $(TARGET)
 	if [ ! -e p-run ]; then mkdir p-run; fi
 	-ln -f *.ExternAttribute.txt p-run/
 	-ln -f *.kernelSet.txt $(TARGET) p-run/
+	-ln -f ../input p-run/
 	-cd p-run; ulimit $(SESA_TIMEOUT); gklee $(GKP_FLAGS) $(TARGET) > ../$(TARGET).out 2>&1
 
 $(TARGET).sesa.out : $(TARGET).sesa
 	if [ ! -e s-run ]; then mkdir s-run; fi
 	-ln -f *.kernelSet.txt $(TARGET).sesa s-run/
 	-ln -f *.ExternAttribute.txt s-run
+	-ln -f ../input p-run/
 	-cd s-run; ulimit $(SESA_TIMEOUT); gklee $(GKS_FLAGS) $(TARGET).sesa > ../$(TARGET).sesa.out 2>&1
 
 $(TARGET).sesa : $(TARGET)
