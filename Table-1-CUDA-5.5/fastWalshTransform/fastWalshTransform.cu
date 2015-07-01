@@ -230,7 +230,8 @@ const int kernelN = 1 << log2Kernel;
 const int   DATA_SIZE = dataN   * sizeof(float);
 const int KERNEL_SIZE = kernelN * sizeof(float);
 
-const double NOPS = 3.0 * (double)dataN * (double)log2Data / 2.0;
+const long NOPS = 3.0 * (double)dataN * (double)log2Data / 2.0;
+//const double NOPS = 3.0 * (double)dataN * (double)log2Data / 2.0;
 
 
 
@@ -308,7 +309,8 @@ int main(int argc, char *argv[])
     //checkCudaErrors(cudaDeviceSynchronize());
     //sdkStopTimer(&hTimer);
     //gpuTime = sdkGetTimerValue(&hTimer);
-    printf("GPU time: %f ms; GOP/s: %f\n", gpuTime, NOPS / (gpuTime * 0.001 * 1E+9));
+    // removed for global FP choking Gklee
+    //    printf("GPU time: %f ms; GOP/s: %f\n", gpuTime, NOPS / (gpuTime * 0.001 * 1E+9));
 
     printf("Reading back GPU results...\n");
     //checkCudaErrors(cudaMemcpy(h_ResultGPU, d_Data, DATA_SIZE, cudaMemcpyDeviceToHost));
