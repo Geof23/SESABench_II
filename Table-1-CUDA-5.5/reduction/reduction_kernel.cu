@@ -150,7 +150,8 @@ reduce2(T *g_idata, T *g_odata, unsigned int n)
     __syncthreads();
 
     // do reduction in shared mem
-    for (unsigned int s=blockDim.x/2; s>0; s>>=1)
+    // for (unsigned int s=blockDim.x/2; s>0; s>>=1)
+    for (unsigned int s=blockDim.x/2; s>0; s *= 2)
     {
         if (tid < s)
         {

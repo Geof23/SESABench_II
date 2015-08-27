@@ -2,6 +2,6 @@
 
 GN_FLAGS += 
 TARGET = bitonic-2.0
-
+GKP_FLAGS += -log-level=999
 include ../../Makefile.common
 

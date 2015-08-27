@@ -1,6 +1,8 @@
 #include "stdio.h"
 
-#define NUM 64 
+//must be at least 2
+#define NUM 4
+// #define NUM 64 
 
 __shared__ int shared[NUM];
 
@@ -21,23 +23,23 @@ __global__ void BitonicKernel(int * values)
   // Copy input to shared mem.  
   shared[tid] = values[tid];
   printf("tid: %d, blockDim: %d\n", tid, blockDim.x);
-  __syncthreads();
+  __syncthreads(); //syncthreads 1
 
   // Parallel bitonic sort.
   for (unsigned int k = 2; k <= blockDim.x; k *= 2) {
     for (unsigned int j = k / 2; j>0; j /= 2) {
       unsigned int ixj = tid ^ j;
-      if (ixj > tid) {
-	if ((tid & k) == 0) {
-	  if (shared[tid] > shared[ixj])
+      if (ixj > tid) { //if1
+	if ((tid & k) == 0) { //if2
+	  if (shared[tid] > shared[ixj])  //if3
 	    swap(shared[tid], shared[ixj]);
 	}
 	else {
-	  if (shared[tid] < shared[ixj])
+	  if (shared[tid] < shared[ixj]) //if4
 	    swap(shared[tid], shared[ixj]);
 	}
       }
-      __syncthreads();
+      __syncthreads(); //syncthreads2
     }
   } //end sort
   
@@ -47,9 +49,18 @@ __global__ void BitonicKernel(int * values)
 
 
 int main() {
-  int *values = (int *)malloc(sizeof(int) * NUM); 
+  //int *values = (int *)malloc(sizeof(int) * NUM); 
+  int values[NUM];
   // the following is equivalent to calling the kernel using <<<...>>>(BitonicKernel)
-  klee_make_symbolic(values, sizeof(int)*NUM, "values");
+   klee_make_symbolic(values, sizeof(int)*NUM, "values");
+  // for(int x = 2; x < NUM; ++x) values[x] = NUM - x;
+  // values[0] = klee_int( "values0" );
+  // values[1] = klee_int( "values1" );
+  
+  // int *a = &values[0];
+  // int *b = &values[1];
+  // klee_make_symbolic( a, sizeof(int), "values1" );
+  // klee_make_symbolic( b, sizeof(int), "values2" );
 
   int *dvalues;
   cudaMalloc((void **)&dvalues, sizeof(int) * NUM);

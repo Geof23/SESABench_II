@@ -4,35 +4,40 @@ OBJFILES = $(patsubst %.cpp,%.o,$(wildcard *.cpp))
 OBJFILES += $(patsubst %.c,%.o,$(wildcard *.c))
 OBJFILES += $(patsubst %.cu,%.o,$(wildcard *.cu))
 VERBOSE ?= 0
-OPT ?= -O3
+OPT ?= -O0
 TARGET ?= test
-GKP_FLAGS ?= --symbolic-config --max-time=7200 
+GKP_FLAGS ?= --symbolic-config --log-level=999 --max-time=7200 
 #-log-level=999
-GKS_FLAGS ?= --symbolic-config --max-time=7200 -log-level=999
+GKS_FLAGS ?= --symbolic-config --race-prune --max-time=7200 --log-level=999
 #SESA_TIMEOUT ?= -c -t 7200 -m 1000000
 SESA_TIMEOUT ?= -t 7200 -v 4000000
 #GN_FLAGS +=
 SESA_FLAGS ?= -verbose=$(VERBOSE)
+GRAPH_FORMAT ?= svg
 
 .PHONY : all
 
-#all : $(TARGET).out $(TARGET).sesa.out
-#TODO we temporarilly disabled SESA to make sure we have the bugs out of GkleeP,
-#and we'll contiune to SESA after.
-all : $(TARGET).out 
+#all : $(TARGET).$(GRAPH_FORMAT) $(TARGET).sesa.$(GRAPH_FORMAT)
+all : $(TARGET).sesa.$(GRAPH_FORMAT)
 
-$(TARGET).out : $(TARGET) 
-	if [ ! -e p-run ]; then mkdir p-run; fi
-	-ln -f *.ExternAttribute.txt p-run/
-	-ln -f *.kernelSet.txt $(TARGET) p-run/
-	-ln -f ../input p-run/
-	-cd p-run; ulimit $(SESA_TIMEOUT); gklee $(GKP_FLAGS) $(TARGET) > ../$(TARGET).out 2>&1
+$(TARGET).$(GRAPH_FORMAT) : flowsGraph.dot
+	$(which dot) -T$(GRAPH_FORMAT) -o $(TARGET).$(GRAPH_FORMAT) p-run/flowsGraph.dot
 
-$(TARGET).sesa.out : $(TARGET).sesa
+$(TARGET).sesa.$(GRAPH_FORMAT) : flowsGraph.dot
+	dot -T$(GRAPH_FORMAT) -o $(TARGET).sesa.$(GRAPH_FORMAT) s-run/flowsGraph.dot
+
+# flowsGraph.dot : $(TARGET) 
+# 	if [ ! -e p-run ]; then mkdir p-run; fi
+# 	-ln -f *.ExternAttribute.txt p-run/
+# 	-ln -f *.kernelSet.txt $(TARGET) p-run/
+# 	-ln -f ../input p-run/
+# 	-cd p-run; ulimit $(SESA_TIMEOUT); gklee $(GKP_FLAGS) $(TARGET) > ../$(TARGET).out 2>&1
+
+flowsGraph.dot : $(TARGET).sesa
 	if [ ! -e s-run ]; then mkdir s-run; fi
 	-ln -f *.kernelSet.txt $(TARGET).sesa s-run/
 	-ln -f *.ExternAttribute.txt s-run
-	-ln -f ../input p-run/
+	-ln -f ../input s-run/
 	-cd s-run; ulimit $(SESA_TIMEOUT); gklee $(GKS_FLAGS) $(TARGET).sesa > ../$(TARGET).sesa.out 2>&1
 
 $(TARGET).sesa : $(TARGET)
@@ -58,8 +63,9 @@ $(TARGET): $(OBJFILES)
 clean: 
 	-rm -f $(OBJFILES) $(TARGET) $(patsubst %.cu,%.cpp,$(wildcard *.cu)) 
 	-rm -f *.intermediate *.sesa summary.txt *.ExternAttribute.txt *.kernelSet.txt
-	-rm -rf 'klee-last' $(wildcard klee-out-*) s-run p-run
+	-rm -rf s-run p-run
 	-rm $(TARGET).out $(TARGET).sesa.out
+	-rm *.dot *.svg
 
 
 
